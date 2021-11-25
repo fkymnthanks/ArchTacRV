@@ -1,0 +1,29 @@
+<idea-plugin>
+    <id>org.buaa.plugin.detectTactic</id>
+    <name>Detect Tactic</name>
+    <vendor email="913359479@qq.com" url="http://www.buaa.edu.cn">BUAA</vendor>
+
+    <description>A plugin which can generate jar for detecting different tactics.
+    After generating, users can edit configuration of IDEA and add jar to the project to detect
+    if the project running fits the tactic.</description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <toolWindow id="Tactic Detection Window" factoryClass="window.SampleToolWindowFactory"/>
+        <applicationService serviceImplementation="highlight.HighLightConfig"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="PopupDialogAction" class="PopupDialogAction" text="Popup Dialog Action"
+                description="My popup dialog action">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+        </action>
+        <action id="HighLightAction" class="HighLightAction" text="Highlight Action" description="Highlight action"/>
+    </actions>
+</idea-plugin>
